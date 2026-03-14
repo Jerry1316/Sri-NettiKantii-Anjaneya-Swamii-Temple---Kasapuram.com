@@ -365,6 +365,35 @@ p {
     margin: 5px 0;
     font-weight: 500;
 }
+   /* --- All Headings Animation Fix --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Main Heading (Jai Shri Ram) */
+.hero-content h1 {
+    animation: fadeInUp 1.5s ease-out forwards !important;
+}
+
+/* Migilina Heading (Origin, Gallery, Contact etc.) */
+/* Ikkada h2 ani add chesa, so anni sections cover avthayi */
+h2 {
+    animation: fadeInUp 1.5s ease-out forwards !important;
+    animation-delay: 0.3s; /* Main heading tharvatha melliga vasthundi */
+}
+
+/* Sections lopala p tags (Description text) */
+.section-content p, .about-content p {
+    animation: fadeInUp 1.5s ease-out forwards !important;
+    animation-delay: 0.6s;
+}
         
     </style>
 </head>
@@ -626,38 +655,41 @@ p {
         <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Share on WhatsApp
     </button>
 </div>
-<footer id="contact" style="background-color: #800000 !important; color: #ffffff !important; padding: 40px 20px !important; text-align: center !important; display: block !important; margin-top: 50px !important;">
-    <section id="contact" class="contact-section">
+<footer id="contact" style="background-color: #8b0000; color: white; padding: 60px 20px;">
     <div class="container">
-        <h2 class="section-title">Contact & Support</h2>
-        <div class="contact-grid">
-            <div class="contact-card">
-                <div class="icon-box">
+        <div class="contact-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px;">
+            
+            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1;">
+                <div class="icon-box" style="background: #8b0000; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white;">
                     <i class="fas fa-phone-alt"></i>
                 </div>
-                <h3>Temple Helpline</h3>
-                <p>+91 94408 39474</p>
-                <p>+91 94910 00655</p>
+                <h3 style="color: #8b0000; font-size: 1.2rem; margin-bottom: 10px;">Temple Helpline</h3>
+                <p style="color: #333; margin: 5px 0;">+91 94408 39474</p>
+                <p style="color: #333; margin: 5px 0;">+91 94910 00655</p>
             </div>
 
-            <div class="contact-card whatsapp">
-                <div class="icon-box">
+            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1;">
+                <div class="icon-box" style="background: #25D366; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white;">
                     <i class="fab fa-whatsapp"></i>
                 </div>
-                <h3>WhatsApp</h3>
-                <p>+91 94408 39474</p>
+                <h3 style="color: #8b0000; font-size: 1.2rem; margin-bottom: 10px;">WhatsApp</h3>
+                <p style="color: #333; margin: 5px 0;">+91 94408 39474</p>
             </div>
 
-            <div class="contact-card email">
-                <div class="icon-box">
+            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1;">
+                <div class="icon-box" style="background: #EA4335; width: 50px; height: 50px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white;">
                     <i class="fas fa-envelope"></i>
                 </div>
-                <h3>Email Us</h3>
-                <p>dc_eo_kasapuram@yahoo.co.in</p>
+                <h3 style="color: #8b0000; font-size: 1.2rem; margin-bottom: 10px;">Email Us</h3>
+                <p style="color: #333; margin: 5px 0; font-size: 0.82rem; word-break: break-all;">dc_eo_kasapuram@yahoo.co.in</p>
             </div>
+
         </div>
+
+        <hr style="border: 0.5px solid rgba(255,255,255,0.2); margin: 40px 0;">
+        <p style="text-align: center; font-size: 0.9rem;">© Sri Nettikanti Anjaneya Swamy Temple, Kasapuram | All Rights Reserved</p>
     </div>
-    </section>
+</footer>
     
     <div style="margin: 30px 0 !important;">
         <p style="color: #FFD700 !important; margin-bottom: 15px !important; font-weight: bold !important;">Follow Devastanam</p>
