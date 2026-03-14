@@ -235,7 +235,7 @@ p {
     <p style="font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 5px;">© 2026 Kasapuram Nettikanti Anjaneya Swamy Temple.</p>
     <p style="font-size: 0.9rem; color: #FFD700; font-weight: bold;">Designed by Jerry (DevNex)</p>
 </footer>
-        @media screen and (min-width: 1024px) {
+       @media screen and (min-width: 1024px) {
     /* Image ni zoom avvakunda, top nundi fix chesthunnam */
     .hero-img {
         object-fit: cover !important;
@@ -264,7 +264,107 @@ p {
         text-shadow: 4px 4px 15px rgba(0,0,0,1) !important;
     }
         }
-        
+        /* --- Text Animation Definition --- */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px); /* 30px kindha nundi modhalavthundi */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* Normal position ki vasthundi */
+    }
+}
+
+/* --- Applying Animation to Headings --- */
+.hero-content h1 {
+    animation: fadeInUp 1.5s ease-out forwards;
+    animation-delay: 0.5s; /* Photo load ayyaka 0.5s aagi modhalavthundi */
+    opacity: 0; /* Starting lo kanapadakunda chesthunnam */
+}
+
+.hero-content p {
+    animation: fadeInUp 1.5s ease-out forwards;
+    animation-delay: 1s; /* Main heading tharvatha idhi vasthundi */
+    opacity: 0;
+}
+        /* Prathi heading ki oka sequence delay isthunnam */
+
+/* 1st Heading */
+.hero-content h1 {
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.3s;
+    opacity: 0;
+}
+
+/* 2nd Heading (Sub-text) */
+.hero-content p {
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 0.8s; /* Koncham aagi vasthundi */
+    opacity: 0;
+}
+
+/* Migilina headings ki kuda delay penchali ante... */
+.gallery h2, .about h2, .contact h2 {
+    animation: fadeInUp 1.2s ease-out forwards;
+    animation-delay: 1.2s;
+    opacity: 0;
+}
+    /* --- Grok Style Premium Contact Section --- */
+.contact-section {
+    padding: 80px 20px;
+    background: #fffcf5; /* Light cream background */
+    text-align: center;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.contact-card {
+    background: #ffffff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Light premium shadow */
+    transition: all 0.3s ease;
+    border: 1px solid #f1e1c1;
+}
+
+.contact-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
+    border-color: #8b0000;
+}
+
+.icon-box {
+    width: 70px;
+    height: 70px;
+    background: #8b0000; /* Temple Maroon */
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 20px;
+    font-size: 28px;
+    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+}
+
+.contact-card h3 {
+    color: #8b0000;
+    margin-bottom: 15px;
+    font-size: 1.4rem;
+}
+
+.contact-card p {
+    color: #555;
+    font-size: 1.1rem;
+    margin: 5px 0;
+    font-weight: 500;
+}
         
     </style>
 </head>
@@ -527,22 +627,37 @@ p {
     </button>
 </div>
 <footer id="contact" style="background-color: #800000 !important; color: #ffffff !important; padding: 40px 20px !important; text-align: center !important; display: block !important; margin-top: 50px !important;">
-    
-    <div style="width: 80px; height: 3px; background-color: #FFD700 !important; margin: 0 auto 25px auto !important;"></div>
-    
-    <h2 style="font-family: 'Merienda', cursive !important; color: #FFD700 !important; margin-bottom: 25px !important; border: none !important; font-size: 1.8rem !important; background: none !important;">Contact & Support</h2>
-    
-    <div style="max-width: 500px; margin: 0 auto !important; text-align: left !important; display: inline-block;">
-        <p style="margin-bottom: 15px !important; font-size: 1rem !important; color: #ffffff !important; display: flex; align-items: center;">
-            <i class="fa-solid fa-phone" style="color: #FFD700 !important; width: 30px;"></i> Helpline: +91 94408 39474
-        </p>
-        <p style="margin-bottom: 15px !important; font-size: 1rem !important; color: #ffffff !important; display: flex; align-items: center;">
-            <i class="fa-brands fa-whatsapp" style="color: #25D366 !important; width: 30px;"></i> WhatsApp: +91 94408 39474
-        </p>
-        <p style="margin-bottom: 15px !important; font-size: 1rem !important; color: #ffffff !important; display: flex; align-items: center;">
-            <i class="fa-solid fa-envelope" style="color: #FFD700 !important; width: 30px;"></i> Email: dc_eo_kasapuram@yahoo.co.in
-        </p>
+    <section id="contact" class="contact-section">
+    <div class="container">
+        <h2 class="section-title">Contact & Support</h2>
+        <div class="contact-grid">
+            <div class="contact-card">
+                <div class="icon-box">
+                    <i class="fas fa-phone-alt"></i>
+                </div>
+                <h3>Temple Helpline</h3>
+                <p>+91 94408 39474</p>
+                <p>+91 94910 00655</p>
+            </div>
+
+            <div class="contact-card whatsapp">
+                <div class="icon-box">
+                    <i class="fab fa-whatsapp"></i>
+                </div>
+                <h3>WhatsApp</h3>
+                <p>+91 94408 39474</p>
+            </div>
+
+            <div class="contact-card email">
+                <div class="icon-box">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3>Email Us</h3>
+                <p>dc_eo_kasapuram@yahoo.co.in</p>
+            </div>
+        </div>
     </div>
+    </section>
     
     <div style="margin: 30px 0 !important;">
         <p style="color: #FFD700 !important; margin-bottom: 15px !important; font-weight: bold !important;">Follow Devastanam</p>
