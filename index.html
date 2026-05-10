@@ -1,916 +1,1155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Merienda:wght@400;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sri Nettikanti Anjaneya Swamy Temple | Official Portal</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kasamma | Ultra-Premium Saree Boutique</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Cormorant+Garamond:wght@400;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet" />
     <style>
-        /* --- Premium Theme Variables (Light Mode Default) --- */
         :root {
-            --saffron: #FF8C00;
-            --deep-gold: #B8860B;
-            --maroon: #8B0000;
-            --off-white: #FFFDF8;
-            --text-main: #333333;
-            --bg-card: #FFFFFF;
-            --input-bg: #FFFFFF;
+            --maroon: #4b0f1c;
+            --maroon-dark: #2a0810;
+            --gold: #d4af37;
+            --gold-soft: #f3d984;
+            --ivory: #fff8ef;
+            --beige: #f3e5d2;
+            --cream: #f9f2e7;
+            --glass: rgba(255, 255, 255, 0.16);
+            --glass-dark: rgba(21, 8, 13, 0.55);
+            --shadow: 0 25px 60px rgba(22, 7, 13, 0.25);
         }
 
-        /* --- Dark Mode Variables --- */
-        [data-theme="dark"] {
-            --off-white: #121212;   /* Black background */
-            --text-main: #E0E0E0;   /* White text */
-            --bg-card: #1E1E1E;     /* Dark grey cards */
-            --maroon: #4A0000;      /* Darker maroon for top bar */
-            --saffron: #FFB347;     /* Bright saffron for visibility */
-            --deep-gold: #D4AF37;   /* Bright gold */
-            --input-bg: #2C2C2C;    /* Dark inputs */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
         }
 
-        /* --- Basic Reset & Body --- */
-        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
-        body { background-color: var(--off-white); color: var(--text-main); font-family: 'Poppins', sans-serif; line-height: 1.6; overflow-x: hidden; transition: background-color 0.4s, color 0.4s; }
-
-        /* --- Top Bar & Sidebar --- */
-        .top-bar {
-            position: sticky; top: 0; z-index: 1000;
-            background: var(--maroon); color: white; padding: 10px 20px;
-            display: flex; align-items: center; box-shadow: 0 4px 10px rgba(0,0,0,0.3);
-            border-bottom: 3px solid var(--saffron);
-            transition: background-color 0.4s;
+        body {
+            font-family: "Poppins", sans-serif;
+            background: radial-gradient(circle at top, #fffdf8, #f8ede0 40%, #efe0d0 100%);
+            color: #2a1a1a;
+            overflow-x: hidden;
         }
-        .menu-btn { font-size: 1.8rem; cursor: pointer; color: var(--saffron); transition: 0.3s; margin-right: 15px;}
-        .menu-btn:hover { color: white; transform: scale(1.1); }
-        
-        .logo-title { display: flex; align-items: center; font-size: 1.1rem; font-weight: bold; font-family: 'Merienda', cursive; }
-        .logo-title img { height: 40px; width: 40px; border-radius: 50%; margin-right: 10px; border: 2px solid var(--deep-gold); object-fit: cover;}
-        
-        /* --- Theme Toggle Button --- */
-        .theme-toggle { margin-left: auto; font-size: 1.5rem; color: var(--saffron); cursor: pointer; transition: 0.3s; padding: 5px; }
-        .theme-toggle:hover { transform: scale(1.1); color: white; }
 
-        /* --- Sidebar --- */
-        .sidebar {
-            position: fixed; top: 0; left: -300px; width: 280px; height: 100vh;
-            background: var(--maroon); box-shadow: 5px 0 15px rgba(0,0,0,0.5);
-            transition: 0.4s; z-index: 2000; padding-top: 20px; overflow-y: auto;
+        img {
+            max-width: 100%;
+            display: block;
         }
-        .sidebar.active { left: 0; }
-        .close-btn { text-align: right; padding: 10px 20px; font-size: 2rem; color: var(--saffron); cursor: pointer; }
-        .sidebar a {
-            display: block; padding: 15px 25px; color: white; text-decoration: none; font-size: 1.1rem;
-            border-bottom: 1px solid rgba(255,255,255,0.1); transition: 0.3s;
+
+        a {
+            text-decoration: none;
+            color: inherit;
         }
-        .sidebar a:hover { color: var(--saffron); padding-left: 35px; border-left: 4px solid var(--saffron); }
 
-        .overlay { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 1500; display: none; }
-        .overlay.active { display: block; }
-/* Hero Section - Image Background Fix */
-.hero {
-    position: relative;
-    width: 100%;
-    height: 100vh; /* Screen motham cover avthundi */
-    overflow: hidden;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.hero-img {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Photo stretch avvakunda center ki set avthundi */
-    z-index: 1;
-}
-
-/* Dark Overlay for Text Clarity */
-.hero::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4); /* Image meedha chinna black shade text kanapadadaniki */
-    z-index: 2;
-}
-/* --- Containers & Cards Fix --- */
-.container {
-    max-width: 1000px;
-    margin: 0 auto;
-    padding: 40px 20px;
-}
-
-h2 {
-    font-family: 'Merienda', cursive;
-    font-size: 2.2rem;
-    color: var(--maroon);
-    margin-bottom: 20px;
-    display: inline-block;
-    border-bottom: 3px solid var(--saffron);
-}
-
-.card {
-    background: var(--bg-card);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
-    margin-bottom: 40px;
-    border-top: 4px solid var(--saffron);
-    transition: background-color 0.3s;
-}
-
-p {
-    line-height: 1.8;
-    color: var(--text-main);
-    margin-bottom: 15px;
-    font-family: 'Poppins', sans-serif;
-}
-
-
-/* Text Overlay Fix */
-.hero-content {
-    position: relative;
-    z-index: 3; /* Image and overlay kanna paina untundi */
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-    width: 100%;
-}/* Hero Content Position Fix */
-.hero-content {
-    position: relative;
-    z-index: 3;
-    text-align: center;
-    color: white;
-    padding: 0 20px;
-    width: 100%;
-    /* Swamy vari face kanapadadaniki text ni kindhiki thosthunnam */
-    margin-top: 380px !important; 
-}
-
-/* Welcome Text Clarity Fix */
-.hero-content p {
-    font-family: 'Poppins', sans-serif !important;
-    font-size: 1.1rem !important;
-    /* Grey nundi White ki marchanu */
-    color: #ffffff !important; 
-    font-weight: 500 !important;
-    /* Background photo meedha text baga kanapadadaniki shadow */
-    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.9) !important;
-    margin-top: 10px !important;
-    opacity: 1 !important; /* Text transparency theesesa */
-}
-
-        
-        /* --- Typography & Elements --- */
-        ul { list-style: none; }
-        li { margin-bottom: 10px; }
-        .grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
-
-        /* --- Prasadam Table --- */
-        table { width: 100%; border-collapse: collapse; margin-top: 15px; }
-        th { background: var(--maroon); color: white; padding: 15px; text-align: left; font-family: 'Merienda', cursive;}
-        td { padding: 15px; border-bottom: 1px solid rgba(136, 136, 136, 0.2); }
-        .price-col { font-weight: bold; color: var(--saffron); }
-
-        /* --- Progress Bar --- */
-        .progress-container { background: #e0e0e0; border-radius: 20px; height: 30px; margin: 20px 0; overflow: hidden; }
-        .progress-bar { background: var(--saffron); height: 100%; width: 70%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; }
-
-        /* --- Forms & Buttons --- */
-        input, select, textarea { width: 100%; padding: 12px; margin-bottom: 15px; border: 1px solid #ccc; border-radius: 6px; font-family: 'Poppins', sans-serif; background: var(--input-bg); color: var(--text-main); transition: background-color 0.4s, color 0.4s;}
-        .btn-maroon { background: var(--maroon); color: white; padding: 12px 25px; border: none; border-radius: 6px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1rem; transition: 0.3s;}
-        .btn-maroon:hover { background: var(--saffron); }
-        .btn-saffron { background: var(--saffron); color: white; padding: 12px 25px; border: none; border-radius: 6px; font-weight: bold; width: 100%; cursor: pointer; font-size: 1.1rem; transition: 0.3s;}
-        .btn-saffron:hover { background: var(--maroon); }
-
-        /* --- Login Tabs --- */
-        .tab-buttons { display: flex; gap: 10px; margin-bottom: 20px; justify-content: center;}
-        .tab-btn { background: var(--input-bg); color: var(--text-main); border: 1px solid #ccc; padding: 10px 20px; border-radius: 5px; font-weight: bold; cursor: pointer; flex: 1; transition: 0.3s;}
-        .tab-btn.active { background: var(--saffron); color: white; border-color: var(--saffron); }
-        .tab-content { display: none; }
-        .tab-content.active { display: block; animation: fadeIn 0.5s;}
-        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
-
-        /* --- Boxes (Donation, Maps) --- */
-        .donation-box { border: 1px solid rgba(136, 136, 136, 0.2); padding: 20px; border-radius: 8px; text-align: center; margin-bottom: 15px; }
-        .qr-img { width: 150px; height: 150px; margin-top: 10px; border: 2px solid var(--saffron); border-radius: 8px; object-fit: cover;}
-
-        /* --- Image Grids (Gallery & Development) --- */
-        .img-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 15px; margin-top: 20px;}
-        .img-item img { width: 100%; aspect-ratio: 16 / 9; object-fit: cover; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); transition: transform 0.3s;}
-        .img-item img:hover { transform: scale(1.05); cursor: pointer;}
-
-        <footer id="contact" style="background: #800000; color: #ffffff; padding: 40px 20px; text-align: center; margin-top: 50px;">
-    
-    <div style="width: 80px; height: 3px; background: #FFD700; margin: 0 auto 20px auto;"></div>
-    
-    <h2 style="font-family: 'Merienda', cursive; color: #FFD700; margin-bottom: 25px; border: none; font-size: 1.8rem;">Contact & Support</h2>
-    
-    <div style="max-width: 500px; margin: 0 auto; text-align: left; padding-left: 10%;">
-        <p style="margin-bottom: 15px; font-size: 1rem; color: #ffffff;">
-            <i class="fa-solid fa-phone" style="color: #FFD700; width: 25px;"></i> Helpline: +91 94408 39474
-        </p>
-        <p style="margin-bottom: 15px; font-size: 1rem; color: #ffffff;">
-            <i class="fa-brands fa-whatsapp" style="color: #25D366; width: 25px;"></i> WhatsApp: +91 94408 39474
-        </p>
-        <p style="margin-bottom: 15px; font-size: 1rem; color: #ffffff;">
-            <i class="fa-solid fa-envelope" style="color: #FFD700; width: 25px;"></i> Email: dc_eo_kasapuram@yahoo.co.in
-        </p>
-    </div>
-    
-    <div style="margin: 30px 0;">
-        <p style="color: #FFD700; margin-bottom: 10px; font-weight: bold;">Follow Devastanam</p>
-        <a href="https://www.facebook.com/share/1AX8mU2jCT/" target="_blank" style="color: #ffffff; font-size: 1.8rem; margin: 0 15px;"><i class="fa-brands fa-facebook"></i></a>
-        <a href="https://www.instagram.com/kasapuramdevastanam" target="_blank" style="color: #ffffff; font-size: 1.8rem; margin: 0 15px;"><i class="fa-brands fa-instagram"></i></a>
-    </div>
-    
-    <hr style="border: 0; border-top: 1px solid rgba(255,215,0,0.3); margin: 20px 0;">
-    
-    <p style="font-size: 0.8rem; color: rgba(255,255,255,0.7); margin-bottom: 5px;">© 2026 Kasapuram Nettikanti Anjaneya Swamy Temple.</p>
-    <p style="font-size: 0.9rem; color: #FFD700; font-weight: bold;">Designed by Jerry (DevNex)</p>
-</footer>
-       @media screen and (min-width: 1024px) {
-    /* Image ni zoom avvakunda, top nundi fix chesthunnam */
-    .hero-img {
-        object-fit: cover !important;
-        object-position: 50% 0% !important; /* Forcefully top part chupisthundhi */
-        height: 100vh !important;
-    }
-
-    /* Hero section height ni laptop lo fix chesthunnam */
-    .hero-section {
-        height: 100vh !important;
-        min-height: 600px !important;
-    }
-
-    /* Text ni paadaala daggara ki dimputhunnam */
-    .hero-content {
-        position: absolute !important;
-        bottom: 50px !important; /* Kindha nundi 50px paina untundhi */
-        left: 50% !important;
-        transform: translateX(-50%) !important;
-        width: 100% !important;
-        margin-top: 0 !important;
-    }
-
-    .hero-content h1 {
-        font-size: 3.5rem !important;
-        text-shadow: 4px 4px 15px rgba(0,0,0,1) !important;
-    }
+        .navbar {
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            background: linear-gradient(120deg, rgba(31, 8, 14, 0.95), rgba(74, 20, 32, 0.92));
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 12px 40px rgba(12, 4, 8, 0.3);
         }
-        /* --- Text Animation Definition --- */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px); /* 30px kindha nundi modhalavthundi */
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0); /* Normal position ki vasthundi */
-    }
-}
 
-/* --- Applying Animation to Headings --- */
-.hero-content h1 {
-    animation: fadeInUp 1.5s ease-out forwards;
-    animation-delay: 0.5s; /* Photo load ayyaka 0.5s aagi modhalavthundi */
-    opacity: 0; /* Starting lo kanapadakunda chesthunnam */
-}
+        .nav-inner {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 16px 28px;
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            align-items: center;
+            gap: 16px;
+        }
 
-.hero-content p {
-    animation: fadeInUp 1.5s ease-out forwards;
-    animation-delay: 1s; /* Main heading tharvatha idhi vasthundi */
-    opacity: 0;
-}
-        /* Prathi heading ki oka sequence delay isthunnam */
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            color: var(--gold);
+            font-family: "Playfair Display", serif;
+            font-size: 1.1rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+        }
 
-/* 1st Heading */
-.hero-content h1 {
-    animation: fadeInUp 1.2s ease-out forwards;
-    animation-delay: 0.3s;
-    opacity: 0;
-}
+        .nav-logo span {
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            background: radial-gradient(circle at top, #fef2da, #c79b30);
+            color: #2a0810;
+            font-weight: 700;
+            box-shadow: 0 0 18px rgba(255, 217, 124, 0.7);
+        }
 
-/* 2nd Heading (Sub-text) */
-.hero-content p {
-    animation: fadeInUp 1.2s ease-out forwards;
-    animation-delay: 0.8s; /* Koncham aagi vasthundi */
-    opacity: 0;
-}
+        .nav-center {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            color: #fff;
+        }
 
-/* Migilina headings ki kuda delay penchali ante... */
-.gallery h2, .about h2, .contact h2 {
-    animation: fadeInUp 1.2s ease-out forwards;
-    animation-delay: 1.2s;
-    opacity: 0;
-}
-    /* --- Grok Style Premium Contact Section --- */
-.contact-section {
-    padding: 80px 20px;
-    background: #fffcf5; /* Light cream background */
-    text-align: center;
-}
+        .brand-badge {
+            width: 62px;
+            height: 62px;
+            border-radius: 50%;
+            padding: 4px;
+            background: conic-gradient(from 120deg, #fbe7b2, #d4af37, #f8d48c, #d4af37);
+            box-shadow: 0 0 30px rgba(248, 210, 136, 0.8);
+        }
 
-.contact-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
+        .brand-badge img {
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            object-fit: cover;
+        }
 
-.contact-card {
-    background: #ffffff;
-    padding: 40px 30px;
-    border-radius: 20px;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.05); /* Light premium shadow */
-    transition: all 0.3s ease;
-    border: 1px solid #f1e1c1;
-}
+        .brand-text {
+            display: flex;
+            flex-direction: column;
+        }
 
-.contact-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 40px rgba(139, 0, 0, 0.1);
-    border-color: #8b0000;
-}
+        .brand-name {
+            font-family: "Playfair Display", serif;
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            color: #f9e9c3;
+            text-shadow: 0 0 18px rgba(248, 220, 150, 0.7);
+        }
 
-.icon-box {
-    width: 70px;
-    height: 70px;
-    background: #8b0000; /* Temple Maroon */
-    color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 28px;
-    box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
-}
+        .nav-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 18px;
+            font-size: 0.95rem;
+            color: #f7e7c7;
+        }
 
-.contact-card h3 {
-    color: #8b0000;
-    margin-bottom: 15px;
-    font-size: 1.4rem;
-}
+        .nav-links a {
+            padding: 8px 12px;
+            border-radius: 18px;
+            transition: 0.3s ease;
+        }
 
-.contact-card p {
-    color: #555;
-    font-size: 1.1rem;
-    margin: 5px 0;
-    font-weight: 500;
-}
-   /* --- All Headings Animation Fix --- */
-@keyframes fadeInUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
+        .nav-links a:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: #fff;
+        }
 
-/* Main Heading (Jai Shri Ram) */
-.hero-content h1 {
-    animation: fadeInUp 1.5s ease-out forwards !important;
-}
+        .nav-toggle {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.6rem;
+            color: #f8e6bf;
+        }
 
-/* Migilina Heading (Origin, Gallery, Contact etc.) */
-/* Ikkada h2 ani add chesa, so anni sections cover avthayi */
-h2 {
-    animation: fadeInUp 1.5s ease-out forwards !important;
-    animation-delay: 0.3s; /* Main heading tharvatha melliga vasthundi */
-}
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 20px 80px;
+            overflow: hidden;
+        }
 
-/* Sections lopala p tags (Description text) */
-.section-content p, .about-content p {
-    animation: fadeInUp 1.5s ease-out forwards !important;
-    animation-delay: 0.6s;
-}
-        
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: url("gallery-16.jpg") center/cover no-repeat;
+            filter: blur(6px);
+            transform: scale(1.08);
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(24, 6, 12, 0.72), rgba(88, 22, 34, 0.6));
+            z-index: 2;
+        }
+
+        .hero-sparkles {
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(255, 231, 180, 0.7) 1px, transparent 1px),
+                radial-gradient(circle, rgba(255, 244, 214, 0.5) 1px, transparent 1px);
+            background-size: 120px 120px, 180px 180px;
+            animation: sparkleMove 12s linear infinite;
+            z-index: 3;
+            opacity: 0.6;
+        }
+
+        @keyframes sparkleMove {
+            from {
+                transform: translateY(0);
+            }
+            to {
+                transform: translateY(-120px);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 4;
+            max-width: 840px;
+            text-align: center;
+            padding: 40px;
+            border-radius: 32px;
+            background: var(--glass);
+            backdrop-filter: blur(18px);
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            animation: floatHero 6s ease-in-out infinite;
+        }
+
+        @keyframes floatHero {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-12px);
+            }
+        }
+
+        .hero-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2.4rem, 4vw, 4rem);
+            color: #fbe5b5;
+            text-shadow: 0 0 25px rgba(255, 227, 170, 0.8);
+            margin-bottom: 16px;
+        }
+
+        .hero-tagline {
+            font-family: "Cormorant Garamond", serif;
+            font-size: 1.35rem;
+            color: #fff6df;
+            letter-spacing: 1px;
+            margin-bottom: 24px;
+        }
+
+        .cta-group {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 16px;
+        }
+
+        .btn {
+            padding: 14px 32px;
+            border-radius: 999px;
+            border: none;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .btn-gold {
+            background: linear-gradient(120deg, #f4d591, #d4af37);
+            color: #2a0810;
+            box-shadow: 0 14px 30px rgba(212, 175, 55, 0.4);
+        }
+
+        .btn-outline {
+            background: transparent;
+            color: #fff8e6;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 18px 40px rgba(212, 175, 55, 0.35);
+        }
+
+        .section {
+            padding: 90px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-family: "Playfair Display", serif;
+            font-size: clamp(2rem, 3vw, 2.8rem);
+            color: var(--maroon);
+            margin-bottom: 14px;
+        }
+
+        .section-subtitle {
+            color: #6e5353;
+            margin-bottom: 40px;
+            max-width: 720px;
+        }
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+        }
+
+        .category-card {
+            position: relative;
+            border-radius: 26px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            min-height: 280px;
+            background: #fff;
+            transform: translateZ(0);
+        }
+
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .category-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(74, 15, 28, 0.2), rgba(74, 15, 28, 0.75));
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 22px;
+            color: #fff;
+        }
+
+        .category-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .featured-scroll {
+            display: flex;
+            gap: 20px;
+            overflow-x: auto;
+            padding-bottom: 16px;
+            scroll-snap-type: x mandatory;
+        }
+
+        .featured-scroll::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .featured-scroll::-webkit-scrollbar-thumb {
+            background: rgba(74, 15, 28, 0.5);
+            border-radius: 999px;
+        }
+
+        .product-card {
+            min-width: 260px;
+            background: var(--cream);
+            border-radius: 24px;
+            padding: 18px;
+            box-shadow: var(--shadow);
+            scroll-snap-align: start;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            position: relative;
+        }
+
+        .product-card img {
+            border-radius: 20px;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .wishlist {
+            position: absolute;
+            top: 18px;
+            right: 18px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            display: grid;
+            place-items: center;
+            color: var(--maroon);
+            box-shadow: 0 8px 20px rgba(74, 15, 28, 0.2);
+        }
+
+        .product-card .price {
+            font-weight: 600;
+            color: var(--maroon);
+        }
+
+        .product-card button {
+            margin-top: auto;
+        }
+
+        .shop-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .shop-item {
+            background: #fff;
+            border-radius: 20px;
+            padding: 16px;
+            box-shadow: var(--shadow);
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .shop-item img {
+            border-radius: 18px;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .glass-panel {
+            background: var(--glass);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            border-radius: 26px;
+            padding: 28px;
+            box-shadow: var(--shadow);
+        }
+
+        .about-wrapper {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 28px;
+            align-items: center;
+        }
+
+        .owner-photo {
+            width: min(320px, 90%);
+            margin: 0 auto;
+            border-radius: 50%;
+            padding: 8px;
+            background: linear-gradient(135deg, #f7d9a1, #c9982d);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.5);
+        }
+
+        .owner-photo img {
+            border-radius: 50%;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: #fff;
+            border-radius: 22px;
+            padding: 22px;
+            box-shadow: var(--shadow);
+            position: relative;
+        }
+
+        .review-card .stars {
+            color: #f6c85f;
+            margin-bottom: 10px;
+        }
+
+        .reel-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 18px;
+        }
+
+        .reel-card {
+            position: relative;
+            border-radius: 20px;
+            overflow: hidden;
+            height: 280px;
+            box-shadow: var(--shadow);
+            background: linear-gradient(160deg, rgba(74, 15, 28, 0.4), rgba(212, 175, 55, 0.6));
+        }
+
+        .reel-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: saturate(1.1);
+        }
+
+        .reel-card .reel-overlay {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.6));
+            display: flex;
+            align-items: flex-end;
+            padding: 16px;
+            color: #fff;
+        }
+
+        .reel-card .play-icon {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.85);
+            display: grid;
+            place-items: center;
+            color: var(--maroon);
+        }
+
+        .product-spotlight {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 26px;
+        }
+
+        .product-gallery {
+            display: grid;
+            gap: 14px;
+        }
+
+        .product-main {
+            border-radius: 24px;
+            overflow: hidden;
+            position: relative;
+            box-shadow: var(--shadow);
+        }
+
+        .product-main img {
+            width: 100%;
+            height: 360px;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .product-main:hover img {
+            transform: scale(1.05);
+        }
+
+        .thumbs {
+            display: flex;
+            gap: 10px;
+        }
+
+        .thumbs button {
+            border: none;
+            background: none;
+            padding: 0;
+            cursor: pointer;
+        }
+
+        .thumbs img {
+            width: 70px;
+            height: 70px;
+            border-radius: 14px;
+            object-fit: cover;
+            border: 2px solid transparent;
+            transition: 0.3s ease;
+        }
+
+        .thumbs img.active {
+            border-color: var(--gold);
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .detail-list {
+            display: grid;
+            gap: 10px;
+            margin: 16px 0;
+        }
+
+        .color-swatches {
+            display: flex;
+            gap: 10px;
+        }
+
+        .swatch {
+            width: 26px;
+            height: 26px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .checkout-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border-radius: 12px;
+            border: 1px solid rgba(0, 0, 0, 0.12);
+            background: #fff;
+            font-family: inherit;
+        }
+
+        .payment-icons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 14px;
+            margin-top: 12px;
+        }
+
+        .payment-icons span {
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(212, 175, 55, 0.12);
+            color: var(--maroon);
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .tracking-steps {
+            display: grid;
+            gap: 12px;
+        }
+
+        .tracking-step {
+            padding: 14px 18px;
+            border-radius: 16px;
+            background: rgba(212, 175, 55, 0.12);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 26px;
+            right: 26px;
+            width: 58px;
+            height: 58px;
+            border-radius: 50%;
+            background: #25d366;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font-size: 1.8rem;
+            box-shadow: 0 14px 30px rgba(37, 211, 102, 0.4);
+            z-index: 999;
+            transition: 0.3s ease;
+        }
+
+        .whatsapp-float:hover {
+            transform: translateY(-4px) scale(1.05);
+        }
+
+        footer {
+            padding: 40px 20px;
+            text-align: center;
+            background: #2a0810;
+            color: #f6e6c3;
+        }
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(10, 4, 8, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .modal-content {
+            background: #fff;
+            border-radius: 24px;
+            padding: 24px;
+            max-width: 520px;
+            width: 90%;
+            text-align: center;
+            box-shadow: var(--shadow);
+        }
+
+        .modal-content img {
+            border-radius: 18px;
+            margin-bottom: 16px;
+            height: 260px;
+            width: 100%;
+            object-fit: cover;
+        }
+
+        @media (max-width: 960px) {
+            .nav-inner {
+                grid-template-columns: 1fr auto;
+            }
+
+            .nav-center {
+                grid-column: 1 / -1;
+                justify-content: center;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 100%;
+                right: 0;
+                background: rgba(28, 6, 12, 0.95);
+                flex-direction: column;
+                padding: 18px;
+                width: min(260px, 90%);
+                transform: translateX(120%);
+                transition: 0.3s ease;
+                border-radius: 0 0 0 22px;
+                gap: 12px;
+            }
+
+            .nav-links.open {
+                transform: translateX(0);
+            }
+
+            .nav-toggle {
+                display: block;
+                justify-self: end;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .hero-content {
+                padding: 28px;
+            }
+
+            .cta-group {
+                flex-direction: column;
+            }
+
+            .product-main img {
+                height: 280px;
+            }
+        }
     </style>
 </head>
 <body>
-
-    <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
-    <div class="sidebar" id="sidebar">
-        <div class="close-btn" onclick="toggleMenu()"><i class="fa-solid fa-xmark"></i></div>
-        <a href="#home" onclick="toggleMenu()"><i class="fa-solid fa-house"></i> Home</a>
-        <a href="#history" onclick="toggleMenu()"><i class="fa-solid fa-scroll"></i> Temple History</a>
-        <a href="#miracles" onclick="toggleMenu()"><i class="fa-solid fa-sparkles"></i> Miracles</a>
-        <a href="#timings" onclick="toggleMenu()"><i class="fa-regular fa-clock"></i> Timings & Prasadam</a>
-        <a href="#gallery" onclick="toggleMenu()"><i class="fa-regular fa-images"></i> Photo Gallery</a>
-        <a href="#development" onclick="toggleMenu()"><i class="fa-solid fa-person-digging"></i> Development</a>
-        <a href="#donations" onclick="toggleMenu()"><i class="fa-solid fa-hand-holding-dollar"></i> E-Hundi & Donations</a>
-        <a href="#virtual" onclick="toggleMenu()"><i class="fa-solid fa-vr-cardboard"></i> 360° Tour</a>
-        <a href="#guide" onclick="toggleMenu()"><i class="fa-solid fa-map-location-dot"></i> Pilgrim Guide</a>
-        <a href="#feedback" onclick="toggleMenu()"><i class="fa-solid fa-comment-dots"></i> Feedback</a>
-        <a href="#login" onclick="toggleMenu()"><i class="fa-solid fa-user-lock"></i> Devotee Login</a>
-    </div>
-
-    <header class="top-bar">
-        <div class="menu-btn" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
-        <div class="logo-title">
-            <img src="temple-logo.png" alt="Logo"> 
-            Sri Nettikanti Anjaneya Swamy
+    <nav class="navbar">
+        <div class="nav-inner">
+            <a class="nav-logo" href="#home">
+                <span>K</span>
+                Kasamma Boutique
+            </a>
+            <div class="nav-center">
+                <div class="brand-badge">
+                    <img src="dev-1.jpg" alt="Kasamma boutique profile" />
+                </div>
+                <div class="brand-text">
+                    <div class="brand-name">Kasamma</div>
+                </div>
+            </div>
+            <div class="nav-links" id="navLinks">
+                <a href="#home">Home</a>
+                <a href="#shop">Shop</a>
+                <a href="#collections">Collections</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+                <a href="#cart">Cart</a>
+                <a href="#checkout">Checkout</a>
+                <a href="#tracking">Order Tracking</a>
+            </div>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <i class="fa-solid fa-bars"></i>
+            </button>
         </div>
-        <div class="theme-toggle" onclick="toggleTheme()" title="Toggle Dark Mode">
-            <i class="fa-solid fa-moon" id="theme-icon"></i>
+    </nav>
+
+    <header class="hero" id="home">
+        <div class="hero-sparkles"></div>
+        <div class="hero-content">
+            <h1 class="hero-title">Kasamma</h1>
+            <p class="hero-tagline">Tradition Woven With Elegance</p>
+            <p style="color:#fff8e6; margin-bottom: 26px;">
+                A cinematic Telugu saree boutique celebrating royal weaves, soulful heritage, and
+                modern couture for every woman.
+            </p>
+            <div class="cta-group">
+                <a class="btn btn-gold" href="#shop">Shop Now</a>
+                <a class="btn btn-outline" href="#collections">Explore Collections</a>
+            </div>
         </div>
     </header>
-<section class="hero" id="home">
-    <img src="swamy-main-darshanam.jpg" alt="Sri Nettikanti Anjaneya Swamy" class="hero-img">
-    <div class="hero-content">
-        <h1>Jai Shri Ram! Jai Hanuman!</h1>
-        <p>Welcome to Sri Nettikanti Anjaneya Swamy Temple, Kasapuram, Guntakal, Anantapur (dist)</p>
-        <p style="font-size: 0.9rem; margin-bottom: 20px;">The Historic & Divine Abode of Hanumanji</p>
-        
-        <div class="hero-btns">
-           ...
-        </div>
-    </div>
-</section>
 
-
-    <div class="container">
-
-        <div class="card" id="history">
-            <h2 class="section-title"><i class="fa-solid fa-scroll"></i> Origin of the Temple</h2>
-            <p><strong>15th–16th Century:</strong> The history of the temple is closely connected with Vyasaraja Tirtha, a famous saint and spiritual teacher of the Krishnadevaraya of the Vijayanagara Empire. Hanuman appeared in his dream and told him that an idol was buried underground near Kasapuram. When dug, a large Hanuman idol (around 10 feet tall) was discovered.</p>
-            <br>
-            <p><strong>Establishment (1521 AD):</strong> Vyasaraja installed it and built a temple. He installed about 732 Hanuman idols across India.</p>
-            <br>
-            <p><strong>Meaning of "Nettikanti":</strong> Netti (forehead) + Kanti (glow/divine sight). Devotees believe the eyes and forehead appear very powerful, as if Hanuman is directly watching and protecting.</p>
-            <br>
-            <p><strong>Architecture & Practices:</strong> Traditional Dravidian-style with a large Raja Gopuram. Devotees perform Pradakshina, 41-day prayers, and chant Lord Rama's name.</p>
-        </div>
-
-        <div class="card" id="miracles">
-            <div style="text-align: center;"><h2 class="section-title"><i class="fa-solid fa-heart-pulse"></i> Miracles of Kasapuram</h2></div>
-            <p style="text-align: center; margin-bottom: 20px;">Thousands of pilgrims share experiences of unexpected positive changes after offering prayers.</p>
-            <ul>
-                <li><i class="fa-solid fa-eye" style="color:var(--saffron);"></i> <strong>Eye-Related Problems:</strong> Receiving sacred Sindhuram brings relief to eye ailments.</li>
-                <li><i class="fa-solid fa-shield" style="color:var(--saffron);"></i> <strong>Protection:</strong> Removes negative energies and spiritual disturbances.</li>
-                <li><i class="fa-solid fa-briefcase" style="color:var(--saffron);"></i> <strong>Career:</strong> Finding employment and overcoming obstacles.</li>
-                <li><i class="fa-solid fa-baby" style="color:var(--saffron);"></i> <strong>Blessings for Children:</strong> Couples are blessed after seeking divine grace.</li>
-            </ul>
-        </div>
-
-        <div id="timings" style="scroll-margin-top: 80px;">
-            <div class="grid-2">
-                <div class="card">
-                    <h2 class="section-title"><i class="fa-regular fa-clock"></i> Temple Timings</h2>
-                    <ul>
-                        <li><strong>5:00 AM:</strong> Temple Opens</li>
-                        <li><strong>6:00 AM – 7:00 AM:</strong> Morning Abhishekam</li>
-                        <li><strong>8:00 AM – 9:00 AM:</strong> Special Archana & Pooja</li>
-                        <li><strong>5:00 AM – 8:30 PM:</strong> Continuous Darshan</li>
-                        <li><strong>6:30 PM – 7:00 PM:</strong> Evening Pooja & Aarti</li>
-                        <li><strong>8:30 PM:</strong> Temple Closes</li>
-                    </ul>
+    <section class="section" id="categories">
+        <h2 class="section-title">Saree Categories</h2>
+        <p class="section-subtitle">Curated signatures with gold-kissed elegance, soft silk gradients, and boutique styling.</p>
+        <div class="category-grid">
+            <div class="category-card">
+                <img src="gallery-1.jpg" alt="Silk sarees" />
+                <div class="category-overlay">
+                    <h3>Silk Sarees</h3>
+                    <p>Royal Kanchipuram-inspired weaves.</p>
                 </div>
-                
-                <div class="card" id="prasadam">
-                    <h2 class="section-title"><i class="fa-solid fa-bowl-rice"></i> Prasadam Services</h2>
-                    <table>
-                        <tr><th>Prasadam Item</th><th>Price</th></tr>
-                        <tr><td><i class="fa-regular fa-circle-dot" style="color:var(--saffron);"></i> Laddu</td><td class="price-col">₹15</td></tr>
-                        <tr><td><i class="fa-regular fa-circle-dot" style="color:var(--saffron);"></i> Abhishekam Laddu</td><td class="price-col">₹75</td></tr>
-                        <tr><td><i class="fa-regular fa-circle-dot" style="color:var(--saffron);"></i> Pulihora</td><td class="price-col">₹10</td></tr>
-                        <tr><td><i class="fa-regular fa-circle-dot" style="color:var(--saffron);"></i> Hanuman Sindhuram</td><td class="price-col">₹10</td></tr>
-                        <tr><td><i class="fa-regular fa-circle-dot" style="color:var(--saffron);"></i> Kalakanda</td><td class="price-col">₹10</td></tr>
-                    </table>
-                    <p style="margin-top: 10px; font-size: 0.85rem; color: #777; font-style: italic;">*Available at offline temple counters only.</p>
+            </div>
+            <div class="category-card">
+                <img src="gallery-2.jpg" alt="Cotton sarees" />
+                <div class="category-overlay">
+                    <h3>Cotton Sarees</h3>
+                    <p>Breathable elegance for day wear.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="gallery-3.jpg" alt="Bridal collection" />
+                <div class="category-overlay">
+                    <h3>Bridal Collection</h3>
+                    <p>Heirloom silhouettes for sacred moments.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="gallery-4.jpg" alt="Party wear sarees" />
+                <div class="category-overlay">
+                    <h3>Party Wear</h3>
+                    <p>Glowing drapes for celebrations.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="gallery-5.jpg" alt="Traditional sarees" />
+                <div class="category-overlay">
+                    <h3>Traditional Sarees</h3>
+                    <p>Timeless motifs of Telugu heritage.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="gallery-6.jpg" alt="Daily wear sarees" />
+                <div class="category-overlay">
+                    <h3>Daily Wear</h3>
+                    <p>Soft drapes with modern comfort.</p>
+                </div>
+            </div>
+            <div class="category-card">
+                <img src="gallery-7.jpg" alt="Handloom collection" />
+                <div class="category-overlay">
+                    <h3>Handloom Collection</h3>
+                    <p>Artisan stories woven in silk.</p>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="card" id="gallery">
-            <div style="text-align: center;"><h2 class="section-title"><i class="fa-solid fa-camera"></i> Photo Gallery</h2></div>
-            <div class="img-grid">
-                <div class="img-item"><img src="gallery-1.jpg" alt="Gallery Photo 1"></div>
-                <div class="img-item"><img src="gallery-2.jpg" alt="Gallery Photo 2"></div>
-                <div class="img-item"><img src="gallery-3.jpg" alt="Gallery Photo 3"></div>
-                <div class="img-item"><img src="gallery-4.jpg" alt="Gallery Photo 4"></div>
-                <div class="img-item"><img src="gallery-5.jpg" alt="Gallery Photo 5"></div>
-                <div class="img-item"><img src="gallery-6.jpg" alt="Gallery Photo 6"></div>
-                <div class="img-item"><img src="gallery-7.jpg" alt="Gallery Photo 7"></div>
-                <div class="img-item"><img src="gallery-8.jpg" alt="Gallery Photo 8"></div>
-                <div class="img-item"><img src="gallery-9.jpg" alt="Gallery Photo 9"></div>
-                <div class="img-item"><img src="gallery-10.jpg" alt="Gallery Photo 10"></div>
-                <div class="img-item"><img src="gallery-11.jpg" alt="Gallery Photo 11"></div>
-                <div class="img-item"><img src="gallery-12.jpg" alt="Gallery Photo 12"></div>
-                <div class="img-item"><img src="gallery-13.jpg" alt="Gallery Photo 13"></div>
-                <div class="img-item"><img src="gallery-14.jpg" alt="Gallery Photo 14"></div>
-                <div class="img-item"><img src="gallery-15.jpg" alt="Gallery Photo 15"></div>
-                <div class="img-item"><img src="gallery-16.jpg" alt="Gallery Photo 16"></div>
-                <div class="img-item"><img src="gallery-17.jpg" alt="Gallery Photo 17"></div>
-                <div class="img-item"><img src="gallery-18.jpg" alt="Gallery Photo 18"></div>
-                <div class="img-item"><img src="gallery-19.jpg" alt="Gallery Photo 19"></div>
-                <div class="img-item"><img src="gallery-20.jpg" alt="Gallery Photo 20"></div>
+    <section class="section" id="collections">
+        <h2 class="section-title">Featured Collections</h2>
+        <p class="section-subtitle">Horizontally curated boutique drops with premium silhouettes and glowing finishes.</p>
+        <div class="featured-scroll">
+            <div class="product-card">
+                <span class="wishlist"><i class="fa-regular fa-heart"></i></span>
+                <img src="gallery-8.jpg" alt="Maroon bridal silk" />
+                <h4>Maroon Bridal Silk</h4>
+                <p class="price">₹32,800</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="wishlist"><i class="fa-regular fa-heart"></i></span>
+                <img src="gallery-9.jpg" alt="Ivory gold weave" />
+                <h4>Ivory Gold Weave</h4>
+                <p class="price">₹18,900</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="wishlist"><i class="fa-regular fa-heart"></i></span>
+                <img src="gallery-10.jpg" alt="Temple border silk" />
+                <h4>Temple Border Silk</h4>
+                <p class="price">₹24,600</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="wishlist"><i class="fa-regular fa-heart"></i></span>
+                <img src="gallery-11.jpg" alt="Rose beige couture" />
+                <h4>Rose Beige Couture</h4>
+                <p class="price">₹21,400</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="product-card">
+                <span class="wishlist"><i class="fa-regular fa-heart"></i></span>
+                <img src="gallery-12.jpg" alt="Midnight zari drape" />
+                <h4>Midnight Zari Drape</h4>
+                <p class="price">₹28,750</p>
+                <button class="btn btn-gold">Add to Cart</button>
             </div>
         </div>
+    </section>
 
-        <div class="card" id="development">
-            <h2 class="section-title"><i class="fa-solid fa-person-digging"></i> Temple Development</h2>
-            <p>Renovation of structures, expansion of pathways, and better darshan queue arrangements are in progress.</p>
-            <div class="progress-container">
-                <div class="progress-bar">70% Completed</div>
+    <section class="section" id="shop">
+        <h2 class="section-title">Shop The Boutique</h2>
+        <p class="section-subtitle">Premium couture edits designed for bridal trousseau, festive soirées, and daily luxury.</p>
+        <div class="shop-grid">
+            <div class="shop-item">
+                <img src="gallery-13.jpg" alt="Gold maroon silk" />
+                <h4>Gold Maroon Silk</h4>
+                <p class="price">₹19,800</p>
+                <button class="btn btn-gold">Add to Cart</button>
             </div>
-            
-            <h3 style="margin-top: 20px;">Current Works</h3>
-            <div class="img-grid">
-                <div class="img-item"><img src="dev-1.jpg" alt="Development Work 1"></div>
-                <div class="img-item"><img src="dev-2.jpg" alt="Development Work 2"></div>
-                <div class="img-item"><img src="dev-3.jpg" alt="Development Work 3"></div>
-                <div class="img-item"><img src="dev-4.jpg" alt="Development Work 4"></div>
-                <div class="img-item"><img src="dev-5.jpg" alt="Development Work 5"></div>
-                <div class="img-item"><img src="dev-6.jpg" alt="Development Work 6"></div>
+            <div class="shop-item">
+                <img src="gallery-14.jpg" alt="Ivory blush zari" />
+                <h4>Ivory Blush Zari</h4>
+                <p class="price">₹15,900</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="shop-item">
+                <img src="gallery-15.jpg" alt="Royal blue silk" />
+                <h4>Royal Blue Silk</h4>
+                <p class="price">₹23,200</p>
+                <button class="btn btn-gold">Add to Cart</button>
+            </div>
+            <div class="shop-item">
+                <img src="gallery-16.jpg" alt="Soft beige drape" />
+                <h4>Soft Beige Drape</h4>
+                <p class="price">₹12,400</p>
+                <button class="btn btn-gold">Add to Cart</button>
             </div>
         </div>
+    </section>
 
-        <div class="card" id="donations" style="text-align: center;">
-            <h2 class="section-title"><i class="fa-solid fa-hand-holding-dollar"></i> E-Hundi & Donations</h2>
-            <p style="margin-bottom: 20px;">Support daily rituals, prasadam, and temple development.</p>
-            
-            <div class="grid-2">
-                <div class="donation-box">
-                    <h3 style="color: var(--saffron);"><i class="fa-brands fa-google-pay"></i> Pay</h3>
-                    <p style="font-weight: bold; margin-top: 10px;">UPI Donation</p>
-                    <p>UPI ID: templeupi@bank</p>
+    <section class="section" id="product">
+        <h2 class="section-title">Product Spotlight</h2>
+        <p class="section-subtitle">Zoomable saree imagery, premium fabric details, and a blouse design preview experience.</p>
+        <div class="product-spotlight">
+            <div class="product-gallery">
+                <div class="product-main">
+                    <img id="mainProductImage" src="gallery-17.jpg" alt="Kasamma signature saree" />
                 </div>
-                
-                <div class="donation-box">
-                    <h3 style="color: var(--saffron);"><i class="fa-solid fa-qrcode"></i> Scan & Pay</h3>
-                    <p style="margin-bottom: 10px; font-size: 0.9rem;">Scan using any UPI App</p>
-                    <img src="qr-main.jpg" alt="Main Temple QR" class="qr-img">
-                    <img src="qr-dev.jpg" alt="Development QR" class="qr-img" style="margin-left: 10px;">
+                <div class="thumbs">
+                    <button><img class="thumb active" src="gallery-17.jpg" data-full="gallery-17.jpg" alt="Saree view 1" /></button>
+                    <button><img class="thumb" src="gallery-18.jpg" data-full="gallery-18.jpg" alt="Saree view 2" /></button>
+                    <button><img class="thumb" src="gallery-19.jpg" data-full="gallery-19.jpg" alt="Saree view 3" /></button>
+                    <button><img class="thumb" src="gallery-20.jpg" data-full="gallery-20.jpg" alt="Saree view 4" /></button>
+                </div>
+            </div>
+            <div class="glass-panel">
+                <h3>Kasamma Royal Heritage Silk</h3>
+                <p class="price">₹34,900</p>
+                <div class="detail-list">
+                    <p><strong>Fabric:</strong> Pure Kanchipuram silk with golden zari.</p>
+                    <p><strong>Delivery:</strong> Express boutique delivery in 3-5 days.</p>
+                    <p><strong>Includes:</strong> Matching blouse piece & premium box.</p>
+                </div>
+                <div class="color-swatches">
+                    <span class="swatch" style="background:#7a0f1f;"></span>
+                    <span class="swatch" style="background:#d4af37;"></span>
+                    <span class="swatch" style="background:#f2dfc7;"></span>
+                </div>
+                <div class="cta-group" style="margin-top: 20px;">
+                    <button class="btn btn-gold">Add to Cart</button>
+                    <button class="btn btn-outline">Buy Now</button>
+                </div>
+                <div class="cta-group" style="margin-top: 12px;">
+                    <button class="btn btn-outline" id="openBlouse">Preview Blouse Design</button>
+                    <a class="btn btn-gold" href="https://wa.me/919999999999?text=Hello%20Kasamma%2C%20I%20would%20love%20to%20inquire%20about%20the%20Royal%20Heritage%20Silk%20saree." target="_blank" rel="noopener">WhatsApp Inquiry</a>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="card" id="virtual">
-    <div style="text-align: center;">
-        <h2 class="section-title"><i class="fa-solid fa-vr-cardboard"></i> 360° Virtual Darshanam</h2>
-    </div>
-    <p style="text-align: center; margin-bottom: 15px;">Experience the temple surroundings in 360 degrees. Drag the screen to look around!</p>
-    
-    <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; border-radius: 12px; box-shadow: 0 4px 15px rgba(0,0,0,0.2); border: 2px solid var(--saffron);">
-        <iframe 
-            src="https://www.google.com/maps/embed?pb=!4v1710344400000!6m8!1m7!1sCAoSLEFGMVFpcE03X1d4ZmlqZnF3YllQeF9QclVfWXpGZl9fX19fX19fX19f!2m2!1d15.1585816!2d77.3820247!3f240.5!4f10!5f0.7820865974627469" 
-            style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" 
-            allowfullscreen="" 
-            loading="lazy" 
-            referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-    </div>
-    
-    <div style="text-align: center; margin-top: 15px;">
-        <p style="font-size: 0.9rem; color: #888; font-style: italic;">Note: Move your finger or mouse to explore the temple premises.</p>
-    </div>
-</div>
-
-
-
-
-
-        <div class="card" id="guide">
-            <div style="text-align: center;"><h2 class="section-title"><i class="fa-solid fa-map-location-dot"></i> Pilgrim Guide & Nearby</h2></div>
-            <h3 style="margin-bottom: 10px;">Route Map</h3>
-            <ul>
-                <li>🚆 <strong>Train:</strong> Guntakal Junction (~10 km)</li>
-                <li>🚌 <strong>Bus:</strong> Guntakal Bus Stand (~12 km)</li>
-                <li>🚗 <strong>Road:</strong> NH44 via Anantapur (~55 km)</li>
-            </ul>
-            
-            <div style="height: 300px; margin: 20px 0; border-radius: 10px; overflow: hidden; border: 1px solid rgba(136, 136, 136, 0.2);">
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15330.46332824209!2d77.37583!3d15.16667!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb7133333333333%3A0x1111111111111111!2sKasapuram%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1680000000000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+    <section class="section" id="about">
+        <h2 class="section-title">About The Owner</h2>
+        <p class="section-subtitle">An emotional, trusted boutique story rooted in heritage, craftsmanship, and love.</p>
+        <div class="about-wrapper glass-panel">
+            <div class="owner-photo">
+                <img src="dev-4.jpg" alt="Kasamma owner portrait" />
             </div>
-            
-            <h3 style="margin-bottom: 10px;">Nearby Attractions</h3>
-            <ul style="padding-left: 20px; list-style-type: disc;">
-                <li>Sri Someswara Swamy Temple (~10 km)</li>
-                <li>Sri Lakshmi Narasimha Swamy (~12 km)</li>
-                <li>Sri Anjaneya Swamy, Tadipatri (~25 km)</li>
-                <li>Sri Venkateswara Swamy, Alur (~30 km)</li>
-            </ul>
-        </div>
-        <div class="card" id="feedback">
-            <h2 class="section-title"><i class="fa-solid fa-comment-dots"></i> Devotee Experiences</h2>
-            
-            <div id="reviews-list" style="margin-bottom: 30px; max-height: 400px; overflow-y: auto; padding-right: 10px;">
-                <p style="text-align: center; color: #888;">Loading reviews...</p>
-            </div>
-
-            <h3 style="margin-bottom: 15px; color: var(--maroon); border-top: 1px solid rgba(136, 136, 136, 0.2); padding-top: 20px;">Write Your Experience</h3>
-            <input type="text" placeholder="Your Name (Optional)" id="fb-name">
-            <select id="fb-rating">
-                <option>⭐⭐⭐⭐⭐ - Excellent</option>
-                <option>⭐⭐⭐⭐ - Very Good</option>
-                <option>⭐⭐⭐ - Good</option>
-            </select>
-            <textarea rows="4" placeholder="Write your experience or blessings received..." id="fb-text"></textarea>
-            <button id="submit-btn" class="btn-maroon" onclick="submitReview()">Submit Review</button>
-        </div>
-
-
-        <div class="card" id="login">
-            <h2 class="section-title"><i class="fa-solid fa-user-lock"></i> Devotee Login</h2>
-            
-            <div id="tab-mobile" class="tab-content active">
-    <p style="margin-bottom: 15px; font-style: italic; font-size: 0.9rem;">Quick & Secure Login.</p>
-    
-    <div id="phone-input-group">
-        <input type="tel" id="user-phone" placeholder="Enter Mobile Number">
-        <button class="btn-saffron" onclick="generateFakeOTP()">Send OTP</button>
-    </div>
-
-    <div id="otp-input-group" style="display: none; margin-top: 15px; border-top: 1px dashed var(--saffron); padding-top: 15px;">
-        <input type="number" id="user-otp" placeholder="Enter 6-digit OTP">
-        <button class="btn-maroon" onclick="verifyFakeOTP()">Verify & Login</button>
-    </div>
-</div>
-
-            
-            <div id="tab-email" class="tab-content">
-                <p style="margin-bottom: 15px; font-style: italic;">Ideal for NRI / global devotees.</p>
-                <input type="email" placeholder="Enter Email Address">
-                <button class="btn-saffron" onclick="alert('Login Link Sent to Email!')">Send Login Link</button>
+            <div>
+                <h3>Kasamma — A Family Boutique Of Timeless Elegance</h3>
+                <p>
+                    Kasamma is more than a saree boutique — it is a cherished family legacy bringing
+                    together handcrafted weaves, Telugu cultural artistry, and the warmth of personal
+                    styling. Each drape is curated with devotion, honoring tradition, beauty, and the
+                    love every woman deserves to feel.
+                </p>
+                <p>
+                    From bridal heirlooms to everyday grace, Kasamma promises trusted authenticity,
+                    premium craftsmanship, and heartfelt service.
+                </p>
             </div>
         </div>
+    </section>
 
-    </div>
-<div class="card" style="text-align: center; background: #fff5e6; border: 1px dashed var(--saffron); margin-bottom: 20px;">
-    <h3 style="color: var(--maroon); margin-bottom: 10px; font-family: 'Merienda', cursive;">Spread the Blessings</h3>
-    <p style="font-size: 0.9rem; margin-bottom: 15px; color: #555;">Share this temple portal with your friends and family on WhatsApp.</p>
-    
-    <button onclick="shareSite()" class="btn-saffron" style="width: auto; padding: 12px 30px; display: inline-flex; align-items: center; justify-content: center; gap: 10px;">
-        <i class="fa-brands fa-whatsapp" style="font-size: 1.2rem;"></i> Share on WhatsApp
-    </button>
-</div>
- <footer id="contact" style="background-color: #8B0000; color: white; padding: 50px 15px; text-align: center;">
-    <div class="container">
-        <h2 style="font-family: 'Merienda', cursive; color: #FFD700; margin-bottom: 35px; font-size: 2rem;">Contact & Support</h2>
-        
-        <div class="contact-grid" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 40px;">
-            
-            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1; max-width: 350px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-bottom: 4px solid #FFD700;">
-                <div class="icon-box" style="background: #8B0000; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 22px;">
-                    <i class="fas fa-phone-alt"></i>
+    <section class="section" id="reviews">
+        <h2 class="section-title">Customer Love</h2>
+        <p class="section-subtitle">Real stories from women who felt the Kasamma glow.</p>
+        <div class="reviews-grid">
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>“Kasamma made my bridal trousseau magical. The zari shimmer and personal service were beyond premium.”</p>
+                <strong>— Anusha, Hyderabad</strong>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>“Elegant collections with genuine warmth. My mother and I felt truly celebrated.”</p>
+                <strong>— Kavya, Vijayawada</strong>
+            </div>
+            <div class="review-card">
+                <div class="stars"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p>“The silk textures are dreamy and the WhatsApp updates made delivery so seamless.”</p>
+                <strong>— Radhika, Bengaluru</strong>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="gallery">
+        <h2 class="section-title">Instagram Reels Gallery</h2>
+        <p class="section-subtitle">Trending saree reels — bridal drapes, styling tutorials, and new arrivals.</p>
+        <div class="reel-grid">
+            <div class="reel-card">
+                <img src="gallery-8.jpg" alt="Bridal reel" />
+                <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+                <div class="reel-overlay"><strong>Bridal Couture</strong></div>
+            </div>
+            <div class="reel-card">
+                <img src="gallery-9.jpg" alt="Draping styles" />
+                <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+                <div class="reel-overlay"><strong>Draping Styles</strong></div>
+            </div>
+            <div class="reel-card">
+                <img src="gallery-10.jpg" alt="New arrivals" />
+                <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+                <div class="reel-overlay"><strong>New Arrivals</strong></div>
+            </div>
+            <div class="reel-card">
+                <img src="gallery-11.jpg" alt="Silk showcase" />
+                <div class="play-icon"><i class="fa-solid fa-play"></i></div>
+                <div class="reel-overlay"><strong>Silk Showcase</strong></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="contact">
+        <h2 class="section-title">Contact Kasamma</h2>
+        <p class="section-subtitle">Personal styling consultations and boutique appointments available daily.</p>
+        <div class="contact-grid">
+            <div class="glass-panel">
+                <h3>Visit Our Boutique</h3>
+                <p>Kasamma Luxury Saree Studio, Jubilee Hills, Hyderabad.</p>
+                <p><strong>Phone:</strong> +91 99 99 99 9999</p>
+                <p><strong>Email:</strong> hello@kasamma.com</p>
+                <p><strong>Hours:</strong> 10:00 AM - 9:30 PM</p>
+            </div>
+            <div class="glass-panel">
+                <h3>Send A Message</h3>
+                <div class="input-group">
+                    <input type="text" placeholder="Your Name" />
                 </div>
-                <h3 style="color: #8B0000; font-size: 1.2rem; margin-bottom: 10px;">Temple Helpline</h3>
-                <p style="color: #333; font-weight: bold;">+91 94408 39474</p>
-            </div>
-
-            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1; max-width: 350px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-bottom: 4px solid #25D366;">
-                <div class="icon-box" style="background: #25D366; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 24px;">
-                    <i class="fab fa-whatsapp"></i>
+                <div class="input-group">
+                    <input type="email" placeholder="Email Address" />
                 </div>
-                <h3 style="color: #8B0000; font-size: 1.2rem; margin-bottom: 10px;">WhatsApp</h3>
-                <p style="color: #333; font-weight: bold;">+91 94408 39474</p>
+                <div class="input-group">
+                    <textarea rows="4" placeholder="Tell us your dream saree style..."></textarea>
+                </div>
+                <button class="btn btn-gold">Submit</button>
             </div>
+        </div>
+    </section>
 
-            <div class="contact-card" style="background: white; border-radius: 15px; padding: 25px; min-width: 280px; flex: 1; max-width: 350px; box-shadow: 0 10px 20px rgba(0,0,0,0.3); border-bottom: 4px solid #EA4335;">
-    <div class="icon-box" style="background: #EA4335; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 15px; color: white; font-size: 22px;">
-        <i class="fas fa-envelope"></i>
-    </div>
-    <h3 style="color: #8B0000; font-size: 1.2rem; margin-bottom: 10px;">Email Us</h3>
-    <a href="mailto:dc_eo_kasapuram@yahoo.co.in" style="text-decoration: none; display: block;">
-        <p style="color: #333; font-size: 0.85rem; font-weight: bold; word-break: break-all; margin: 0;">dc_eo_kasapuram@yahoo.co.in</p>
+    <section class="section" id="cart">
+        <h2 class="section-title">Cart</h2>
+        <p class="section-subtitle">A preview of your curated luxury picks.</p>
+        <div class="glass-panel">
+            <p><strong>Kasamma Royal Heritage Silk</strong> — ₹34,900</p>
+            <p><strong>Ivory Gold Weave</strong> — ₹18,900</p>
+            <hr style="margin: 16px 0; border-color: rgba(0,0,0,0.1);" />
+            <p><strong>Total:</strong> ₹53,800</p>
+            <button class="btn btn-gold" style="margin-top: 14px;">Proceed to Checkout</button>
+        </div>
+    </section>
+
+    <section class="section" id="checkout">
+        <h2 class="section-title">Checkout</h2>
+        <p class="section-subtitle">Secure payments with UPI, PhonePe, Google Pay, Paytm, cards, and COD.</p>
+        <div class="checkout-grid">
+            <div class="glass-panel">
+                <h3>Shipping Details</h3>
+                <div class="input-group"><input type="text" placeholder="Full Name" /></div>
+                <div class="input-group"><input type="text" placeholder="Address" /></div>
+                <div class="input-group"><input type="text" placeholder="City" /></div>
+                <div class="input-group"><input type="text" placeholder="Pincode" /></div>
+            </div>
+            <div class="glass-panel">
+                <h3>Payment Options</h3>
+                <p>Choose your preferred secure payment method.</p>
+                <div class="payment-icons">
+                    <span>UPI</span>
+                    <span>PhonePe</span>
+                    <span>Google Pay</span>
+                    <span>Paytm</span>
+                    <span>Debit Card</span>
+                    <span>Credit Card</span>
+                    <span>Cash on Delivery</span>
+                </div>
+                <button class="btn btn-gold" style="margin-top: 18px;">Pay Securely</button>
+            </div>
+        </div>
+    </section>
+
+    <section class="section" id="tracking">
+        <h2 class="section-title">Order Tracking</h2>
+        <p class="section-subtitle">Track your saree order with boutique care and real-time updates.</p>
+        <div class="glass-panel">
+            <div class="input-group"><input type="text" placeholder="Enter Order ID" /></div>
+            <button class="btn btn-gold">Track Order</button>
+            <div class="tracking-steps" style="margin-top: 20px;">
+                <div class="tracking-step">Order Confirmed</div>
+                <div class="tracking-step">Tailoring & Quality Check</div>
+                <div class="tracking-step">Out for Delivery</div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>Kasamma © 2026. Crafted with Telugu elegance & modern luxury fashion aesthetics.</p>
+    </footer>
+
+    <a class="whatsapp-float" href="https://wa.me/919999999999?text=Hello%20Kasamma%2C%20I%20would%20like%20to%20place%20a%20saree%20order." target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i>
     </a>
-            </div>      
-        </div>
-        <div style="display: flex; justify-content: center; gap: 30px; font-size: 30px; margin: 25px 0;">
-    
-    <a href="https://www.facebook.com/share/16zddxWpof/" target="_blank" rel="noopener noreferrer" style="color: white;">
-        <i class="fab fa-facebook"></i>
-    </a>
-    
-    <a href="https://www.instagram.com/kasapuramdevastanam?igsh=MWp5bGlpenJweXN3bw==" target="_blank" rel="noopener noreferrer" style="color: white;">
-    <i class="fab fa-instagram"></i>
-    </a>
 
+    <div class="modal" id="blouseModal">
+        <div class="modal-content">
+            <img src="gallery-14.jpg" alt="Blouse design preview" />
+            <h3>Blouse Design Preview</h3>
+            <p>Gold-thread temple motifs with modern boat-neck silhouette and handcrafted beadwork.</p>
+            <button class="btn btn-gold" id="closeBlouse">Close Preview</button>
         </div>
-        
+    </div>
 
-        <hr style="border: 0.5px solid rgba(255,215,0,0.2); width: 85%; margin: 20px auto;">
-        
-        <p style="font-size: 0.9rem; margin-bottom: 25px; color: white; font-weight: 500;">
-            © Sri Nettikanti Anjaneya Swamy Temple, Kasapuram | All Rights Reserved
-        </p>
-        
-        <div style="display: inline-block; background: white; padding: 10px 30px; border-radius: 50px; box-shadow: 0 5px 15px rgba(0,0,0,0.2);">
-            <p style="color: #8B0000; font-weight: bold; margin: 0; font-size: 1.1rem;">
-                Designed by JERRY (DEVNEX)
-            </p>
-        </div>
-    </div> 
- </footer> 
     <script>
-        // Sidebar Toggle
-        function toggleMenu() {
-            document.getElementById('sidebar').classList.toggle('active');
-            document.getElementById('overlay').classList.toggle('active');
-        }
-
-        // Login Tabs Toggle
-        function switchTab(tab) {
-            document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
-            
-            document.getElementById('tab-' + tab).classList.add('active');
-            if(tab === 'mobile') {
-                document.querySelectorAll('.tab-btn')[0].classList.add('active');
-            } else {
-                document.querySelectorAll('.tab-btn')[1].classList.add('active');
-            }
-        }
-
-        // Dark/Light Mode Toggle Logic
-        function toggleTheme() {
-            const body = document.body;
-            const icon = document.getElementById('theme-icon');
-            
-            if (body.getAttribute('data-theme') === 'dark') {
-                body.removeAttribute('data-theme');
-                icon.classList.replace('fa-sun', 'fa-moon');
-                localStorage.setItem('templeTheme', 'light');
-            } else {
-                body.setAttribute('data-theme', 'dark');
-                icon.classList.replace('fa-moon', 'fa-sun');
-                localStorage.setItem('templeTheme', 'dark');
-            }
-        }
-
-        // Load Saved Theme on Startup
-        window.onload = () => {
-            const savedTheme = localStorage.getItem('templeTheme');
-            if (savedTheme === 'dark') {
-                document.body.setAttribute('data-theme', 'dark');
-                document.getElementById('theme-icon').classList.replace('fa-moon', 'fa-sun');
-            }
-        };
-    </script>
-
-   <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-app.js";
-    import { getFirestore, collection, addDoc, getDocs } from "https://www.gstatic.com/firebasejs/10.8.1/firebase-firestore.js";
-
-    const firebaseConfig = {
-        apiKey: "AIzaSyC1g0ugR10eXZY3Vc0I2GPEyyBAci3nKCE",
-        authDomain: "kasapuram-temple.firebaseapp.com",
-        projectId: "kasapuram-temple",
-        storageBucket: "kasapuram-temple.firebasestorage.app",
-        messagingSenderId: "331764030035",
-        appId: "1:331764030035:web:ea23d79e539bae4a2c04a6"
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const db = getFirestore(app);
-
-    // --- Reviews ni Database nundi thechi chupinchadam ---
-    window.loadReviews = async function() {
-        const reviewsList = document.getElementById('reviews-list');
-        try {
-            const querySnapshot = await getDocs(collection(db, "reviews"));
-            let reviewsData = [];
-            
-            querySnapshot.forEach((doc) => {
-                const data = doc.data();
-                // Data unte ne list lo add chestham
-                if(data.review) {
-                    reviewsData.push(data);
-                }
-            });
-
-            reviewsData.reverse();
-            reviewsList.innerHTML = ''; 
-
-            if(reviewsData.length === 0) {
-                reviewsList.innerHTML = '<p style="text-align: center; color: #888;">Be the first to share your experience!</p>';
-                return;
-            }
-
-            reviewsData.forEach((data) => {
-                reviewsList.innerHTML += `
-                    <div class="review-box">
-                        <h4><i class="fa-solid fa-user-pen"></i> ${data.name || "Anonymous"}</h4>
-                        <div class="stars">${data.rating || "⭐⭐⭐⭐⭐"}</div>
-                        <p style="font-style: italic;">"${data.review}"</p>
-                        <div class="date">${data.timestamp || ""}</div>
-                    </div>
-                `;
-            });
-        } catch (error) {
-            console.error("Error: ", error);
-            reviewsList.innerHTML = '<p style="text-align: center; color: red;">Failed to load reviews.</p>';
-        }
-    };
-
-    // Page open avvagane reviews load avvali
-    loadReviews();
-
-    // --- Review Submit chese Function ---
-    window.submitReview = async function() {
-        const nameVal = document.getElementById('fb-name').value;
-        const ratingVal = document.getElementById('fb-rating').value;
-        const textVal = document.getElementById('fb-text').value;
-        const btn = document.getElementById('submit-btn');
-
-        if(textVal.trim() === "") {
-            alert("Please write something!");
-            return;
-        }
-
-        btn.innerText = "Submitting..."; 
-        btn.style.opacity = "0.7";
-
-        try {
-            await addDoc(collection(db, "reviews"), {
-                name: nameVal ? nameVal : "Anonymous Devotee",
-                rating: ratingVal,
-                review: textVal,
-                timestamp: new Date().toLocaleString()
-            });
-            
-            alert("Jai Hanuman! 🙏 Success!");
-            document.getElementById('fb-name').value = '';
-            document.getElementById('fb-text').value = '';
-            btn.innerText = "Submit Review";
-            btn.style.opacity = "1";
-            
-            loadReviews(); // Refresh the list
-            
-        } catch (error) {
-            alert("Error: " + error);
-            btn.innerText = "Submit Review";
-            btn.style.opacity = "1";
-        }
-    };
-    // --- JERRY SPECIAL OTP LOGIC ---
-    let generatedOTP = ""; 
-
-    window.generateFakeOTP = function() {
-        const phone = document.getElementById('user-phone').value;
-        if(phone.length < 10) {
-            alert("Jerry says: Please enter a valid 10-digit number!");
-            return;
-        }
-
-        // 6-digit Random OTP Generate chesthunnam
-        generatedOTP = Math.floor(100000 + Math.random() * 900000);
-        
-        // Browser alert lo OTP chupistham (Real gateway setup ayye daka)
-        alert("🔒 KASAPURAM TEMPLE OTP: " + generatedOTP);
-        
-        // Phone input hide chesi, OTP box chupinchadam
-        document.getElementById('phone-input-group').style.display = "none";
-        document.getElementById('otp-input-group').style.display = "block";
-    };
-
-    window.verifyFakeOTP = function() {
-        const enteredOTP = document.getElementById('user-otp').value;
-        if(enteredOTP == generatedOTP) {
-            alert("Jai Hanuman! Login Successful 🚩🙏");
-            location.reload(); // Success ayyaka page refresh chesthunnam
-        } else {
-            alert("Wrong OTP! Try Again 😊.");
-        }
-    };
-
-// JavaScript lo Script tag lopala pettu
-function shareSite() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Kasapuram Temple Portal',
-            text: 'Check out the official-style portal for Sri Nettikanti Anjaneya Swamy Temple!',
-            url: window.location.href
+        const navToggle = document.getElementById("navToggle");
+        const navLinks = document.getElementById("navLinks");
+        navToggle.addEventListener("click", () => {
+            navLinks.classList.toggle("open");
         });
-    } else {
-        alert("Copy this link to share: " + window.location.href);
-    }
-}
-// Function ni window object ki attach chestunnam (Link avvadaniki)
-window.shareSite = function() {
-    if (navigator.share) {
-        navigator.share({
-            title: 'Sri Nettikanti Anjaneya Swamy Temple',
-            text: 'Check out this beautiful portal for Kasapuram Temple. Jai Hanuman! 🙏',
-            url: window.location.href
-        }).catch((err) => console.log('Error sharing:', err));
-    } else {
-        // Desktop browsers lo alert chupisthundi
-        alert("Please copy this link to share: " + window.location.href);
-    }
-};
 
-</script>
+        const thumbs = document.querySelectorAll(".thumb");
+        const mainProductImage = document.getElementById("mainProductImage");
+        thumbs.forEach((thumb) => {
+            thumb.addEventListener("click", () => {
+                thumbs.forEach((item) => item.classList.remove("active"));
+                thumb.classList.add("active");
+                mainProductImage.src = thumb.dataset.full;
+            });
+        });
+
+        const blouseModal = document.getElementById("blouseModal");
+        const openBlouse = document.getElementById("openBlouse");
+        const closeBlouse = document.getElementById("closeBlouse");
+        openBlouse.addEventListener("click", () => blouseModal.classList.add("active"));
+        closeBlouse.addEventListener("click", () => blouseModal.classList.remove("active"));
+        blouseModal.addEventListener("click", (event) => {
+            if (event.target === blouseModal) {
+                blouseModal.classList.remove("active");
+            }
+        });
+    </script>
 </body>
 </html>
