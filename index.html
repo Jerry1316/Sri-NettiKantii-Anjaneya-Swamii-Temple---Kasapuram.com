@@ -762,7 +762,7 @@
                 <a href="#checkout">Checkout</a>
                 <a href="#tracking">Order Tracking</a>
             </div>
-            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation" aria-expanded="false">
                 <i class="fa-solid fa-bars"></i>
             </button>
         </div>
@@ -947,7 +947,7 @@
                 </div>
                 <div class="cta-group" style="margin-top: 12px;">
                     <button class="btn btn-outline" id="openBlouse">Preview Blouse Design</button>
-                    <a class="btn btn-gold" href="https://wa.me/919999999999?text=Hello%20Kasamma%2C%20I%20would%20love%20to%20inquire%20about%20the%20Royal%20Heritage%20Silk%20saree." target="_blank" rel="noopener">WhatsApp Inquiry</a>
+                    <a class="btn btn-gold" href="https://wa.me/919876543210?text=Hello%20Kasamma%2C%20I%20would%20love%20to%20inquire%20about%20the%20Royal%20Heritage%20Silk%20saree." target="_blank" rel="noopener">WhatsApp Inquiry</a>
                 </div>
             </div>
         </div>
@@ -1032,8 +1032,8 @@
             <div class="glass-panel">
                 <h3>Visit Our Boutique</h3>
                 <p>Kasamma Luxury Saree Studio, Jubilee Hills, Hyderabad.</p>
-                <p><strong>Phone:</strong> +91 99 99 99 9999</p>
-                <p><strong>Email:</strong> hello@kasamma.com</p>
+                <p><strong>Phone:</strong> +91 98765 43210</p>
+                <p><strong>Email:</strong> support@kasamma.com</p>
                 <p><strong>Hours:</strong> 10:00 AM - 9:30 PM</p>
             </div>
             <div class="glass-panel">
@@ -1110,7 +1110,7 @@
         <p>Kasamma © 2026. Crafted with Telugu elegance & modern luxury fashion aesthetics.</p>
     </footer>
 
-    <a class="whatsapp-float" href="https://wa.me/919999999999?text=Hello%20Kasamma%2C%20I%20would%20like%20to%20place%20a%20saree%20order." target="_blank" rel="noopener">
+    <a class="whatsapp-float" href="https://wa.me/919876543210?text=Hello%20Kasamma%2C%20I%20would%20like%20to%20place%20a%20saree%20order." target="_blank" rel="noopener">
         <i class="fa-brands fa-whatsapp"></i>
     </a>
 
@@ -1128,6 +1128,7 @@
         const navLinks = document.getElementById("navLinks");
         navToggle.addEventListener("click", () => {
             navLinks.classList.toggle("open");
+            navToggle.setAttribute("aria-expanded", navLinks.classList.contains("open"));
         });
 
         const thumbs = document.querySelectorAll(".thumb");
